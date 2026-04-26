@@ -1,0 +1,16 @@
+product_id,product_name,category,base_price,base_demand
+P001,Leche entera,Lacteos,1.25,55
+P002,Yogur natural,Lacteos,1.1,44
+P003,Queso fresco,Lacteos,2.6,30
+P004,Pan de molde,Panaderia,1.55,60
+P005,Bolleria,Panaderia,1.8,35
+P006,Manzanas,Fruta,2.2,48
+P007,Platanos,Fruta,1.95,52
+P008,Ensalada preparada,Fresco,2.75,28
+P009,Agua mineral,Bebidas,0.7,75
+P010,Refresco cola,Bebidas,1.2,66
+P011,Cafe molido,Despensa,3.4,24
+P012,Arroz,Despensa,1.35,42
+P013,Pasta,Despensa,1.15,40
+P014,Helado,Congelado,2.9,26
+P015,Pizza congelada,Congelado,3.1,34
