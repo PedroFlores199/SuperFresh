@@ -6,3 +6,5 @@ uvicorn
 pydantic
 joblib
 streamlit
+pyspark
+requests
