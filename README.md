@@ -7,9 +7,15 @@ Proyecto preparado para el trabajo de enfoque de Sistemas de Big Data. Implement
 - `data_generator.py`: genera datos simulados de ventas, productos, tiendas, promociones, clima y stock.
 - `features.py`: crea variables temporales, retardos y medias móviles.
 - `train.py`: entrena un modelo `RandomForestRegressor`, calcula MAE, RMSE y R², y genera recomendaciones de reposición.
+- `spark_processing.py`: pipeline batch en PySpark (agregados por tienda y producto, funciones de ventana) sobre los CSV.
+- `storage.py`: esquema y carga en PostgreSQL con SQLAlchemy, y consultas de resumen de ventas y stock en riesgo.
 - `api.py`: API FastAPI para consultar estado, productos, tiendas, métricas y predicciones.
 - `dashboard.py`: cuadro de mando en Streamlit.
 - `requirements.txt`: dependencias.
+
+## Stack
+
+Python · pandas · scikit-learn · PySpark · FastAPI · Streamlit · PostgreSQL (SQLAlchemy)
 
 ## Instalación
 

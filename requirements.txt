@@ -8,3 +8,5 @@ joblib
 streamlit
 pyspark
 requests
+sqlalchemy
+psycopg2-binary
