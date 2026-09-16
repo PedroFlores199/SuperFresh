@@ -1,50 +1,50 @@
-# SuperFresh Big Data - Predicción de demanda
+# SuperFresh Big Data - Demand forecasting
 
-Proyecto preparado para el trabajo de enfoque de Sistemas de Big Data. Implementa un sistema de predicción de ventas para SuperFresh con datos simulados, modelo de Machine Learning, API y cuadro de mando.
+Project prepared for the Big Data Systems focus assignment. It implements a sales forecasting system for SuperFresh with simulated data, a Machine Learning model, an API and a dashboard.
 
-## Estructura
+## Structure
 
-- `data_generator.py`: genera datos simulados de ventas, productos, tiendas, promociones, clima y stock.
-- `features.py`: crea variables temporales, retardos y medias móviles.
-- `train.py`: entrena un modelo `RandomForestRegressor`, calcula MAE, RMSE y R², y genera recomendaciones de reposición.
-- `spark_processing.py`: pipeline batch en PySpark (agregados por tienda y producto, funciones de ventana) sobre los CSV.
-- `storage.py`: esquema y carga en PostgreSQL con SQLAlchemy, y consultas de resumen de ventas y stock en riesgo.
-- `api.py`: API FastAPI para consultar estado, productos, tiendas, métricas y predicciones.
-- `dashboard.py`: cuadro de mando en Streamlit.
-- `requirements.txt`: dependencias.
+- `data_generator.py`: generates simulated data for sales, products, stores, promotions, weather and stock.
+- `features.py`: builds time variables, lag features and rolling averages.
+- `train.py`: trains a `RandomForestRegressor` model, computes MAE, RMSE and R², and generates restocking recommendations.
+- `spark_processing.py`: batch pipeline in PySpark (aggregates by store and product, window functions) over the CSV files.
+- `storage.py`: schema and loading into PostgreSQL with SQLAlchemy, plus summary queries for sales and stock at risk.
+- `api.py`: FastAPI API to query status, products, stores, metrics and predictions.
+- `dashboard.py`: dashboard in Streamlit.
+- `requirements.txt`: dependencies.
 
 ## Stack
 
 Python · pandas · scikit-learn · PySpark · FastAPI · Streamlit · PostgreSQL (SQLAlchemy)
 
-## Instalación
+## Installation
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # En Windows: .venv\Scripts\activate
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## Ejecución completa
+## Full run
 
 ```bash
 python data_generator.py
 python train.py
 ```
 
-## Lanzar la API
+## Launch the API
 
 ```bash
 uvicorn api:app --reload --port 8001
 ```
 
-Prueba rápida:
+Quick test:
 
 ```bash
 curl http://127.0.0.1:8001/health
 ```
 
-Predicción ejemplo:
+Example prediction:
 
 ```bash
 curl -X POST http://127.0.0.1:8001/predict \
@@ -52,17 +52,17 @@ curl -X POST http://127.0.0.1:8001/predict \
   -d '{"store_id":"T001","product_id":"P009","date":"2025-08-30","promotion":0,"temperature":28,"rainfall_mm":0,"special_event":0,"stock_available":40}'
 ```
 
-## Lanzar dashboard
+## Launch the dashboard
 
 ```bash
 streamlit run dashboard.py
 ```
 
-## Resultados esperados
+## Expected results
 
-El entrenamiento guarda los resultados en `artifacts/`:
+Training saves the results to `artifacts/`:
 
-- `superfresh_model.joblib`: modelo entrenado y datos auxiliares.
-- `metrics.json`: MAE, RMSE, R² y tamaño de entrenamiento/prueba.
-- `test_predictions.csv`: comparación entre ventas reales y predichas.
-- `stock_recommendations.csv`: recomendación de stock por tienda y producto.
+- `superfresh_model.joblib`: trained model and auxiliary data.
+- `metrics.json`: MAE, RMSE, R² and training/test size.
+- `test_predictions.csv`: comparison between actual and predicted sales.
+- `stock_recommendations.csv`: stock recommendation by store and product.
